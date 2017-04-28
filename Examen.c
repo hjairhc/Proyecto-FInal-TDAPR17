@@ -36,34 +36,8 @@ void main()
 	
 	while (!feof(Archivo))
 	{
-	/*		
-	fscanf(archivo, "%15[^,],%15[^,],%15[^,],%15[^,],%15[^,],%15[^,],%15[^;]\n", vLibro[i].pregunta, vLibro[i].correcta, vLibro[i].opciona, vLibro[i].opcionb, vLibro[i].opcionc, vLibro[i].opciond, vLibro->puntuacion);
-*/
 		
-		fgets(linea,255,Archivo);
- 		token = strtok(linea,",");
-		strcpy(vLibro[i].pregunta,token);
-		printf("%s\n", vLibro[i].pregunta);
-		
-		/*token = strtok(NULL,",");
-		printf("%s\n", token);
-		strcpy(vLibro[i].correcta,token);
-		printf("%s\n", vLibro[i].pregunta);
-	/*	
-		token = strtok(NULL,";");
-		strcpy(vLibro[i].opciona,token);
- 
-		token = strtok(NULL,";");
-		strcpy(vLibro[i].opcionb,token); 
-
-		token = strtok(NULL,";");
-		strcpy(vLibro[i].opcionc,token); 
-
-		token = strtok(NULL,";");
-		strcpy(vLibro[i].opciond,token); 
-
-		token = strtok(NULL,";");
-		strcpy(vLibro[i].puntuacion,token); */
+	fscanf(Archivo, "%20[^,],%20[^,],%20[^,],%20[^,],%20[^,],%120[^,],%20[^;]\n", vLibro[i].pregunta, vLibro[i].correcta, vLibro[i].opciona, vLibro[i].opcionb, vLibro[i].opcionc, vLibro[i].opciond, vLibro[i].puntuacion);
 		i++;  
 	}
 	//Cierro el archivo
@@ -72,9 +46,13 @@ void main()
 	for(i=0;i<2;i++)
 	{
 		printf("\nPregunta: %s",vLibro[i].pregunta);
-		printf("\ncorrecta: %s",vLibro[i].correcta);;
-		printf("\nopciona: %s",vLibro[i].opciona);;
-		printf("\nOpcionb: %s",vLibro[i].opcionb);;
+		printf("\ncorrecta: %s",vLibro[i].correcta);
+		printf("\nopciona: %s",vLibro[i].opciona);
+		printf("\nOpcionb: %s",vLibro[i].opcionb);
+		printf("\nopcionc: %s",vLibro[i].opcionc);
+		printf("\nopciond: %s",vLibro[i].opciond);
+		printf("\npuntuacion: %s",vLibro[i].puntuacion);
+		
 		
 	}
 
