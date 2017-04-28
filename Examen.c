@@ -1,16 +1,4 @@
 #include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-
-
-int main()
-{
-
-	FILE *Archivo;
-	char *token;
-	char linea[100];
-	int cont=0;
-#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
@@ -25,7 +13,7 @@ typedef struct ty_libro
 	char opcionc[41];
 	char opciond[41];
 	char puntuacion[41];
-}NODO;
+}NODO[200];
 
 void main()
 {
@@ -48,20 +36,16 @@ void main()
 	
 	while (!feof(Archivo))
 	{
-		vLibro=malloc(sizeof(NODO));
-		if(vLibro==NULL)
-		{
-			printf("no hay espacio");
-		}
-		fscanf(archivo, "%15[^,],%15[^,],%15[^,],%15[^,],%15[^,],%15[^,],%15[^;]\n", vLibro->pregunta, vLibro->correcta, vLibro, opciona, vLibro->opcionb, vLibro->opcionc, vLibro->opciond, vLibro->puntuacion);
-
 	/*		
+	fscanf(archivo, "%15[^,],%15[^,],%15[^,],%15[^,],%15[^,],%15[^,],%15[^;]\n", vLibro[i].pregunta, vLibro[i].correcta, vLibro[i].opciona, vLibro[i].opcionb, vLibro[i].opcionc, vLibro[i].opciond, vLibro->puntuacion);
+*/
+		
 		fgets(linea,255,Archivo);
  		token = strtok(linea,",");
 		strcpy(vLibro[i].pregunta,token);
 		printf("%s\n", vLibro[i].pregunta);
 		
-		token = strtok(NULL,",");
+		/*token = strtok(NULL,",");
 		printf("%s\n", token);
 		strcpy(vLibro[i].correcta,token);
 		printf("%s\n", vLibro[i].pregunta);
@@ -94,20 +78,4 @@ void main()
 		
 	}
 
-}
-	Archivo=fopen("libro.csv","rt");
-	if(!Archivo==NULL)
-	{
-		printf("No existe");
-	}
-	else
-	{
-		printf("El archivo se leyo correctamente");
-	}
-	while(!feof(Archivo))
-	{
-		fgets(linea, 50, Archivo);
-	}
-
-	printf("%s", linea);
 }
