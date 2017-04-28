@@ -1,39 +1,59 @@
-commit 7fd7e3683f1849fc12030feb25d91e597b13a3a0
-Merge: c229921 b1a1558
-Author: Pichoman <ic14dcl@antares.dci.uia.mx>
-Date:   Fri Apr 28 14:18:52 2017 -0500
 
-    Merge branch 'master' of github.com:hjairhc/Proyecto-FInal-TDAPR17
-    
-    Conflicts:
-    	Examen.c
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
-commit b1a155841a476efca35b54414158ad0044c8e593
-Author: hjairhc <ic16hhc@antares.dci.uia.mx>
-Date:   Fri Apr 28 13:33:53 2017 -0500
+ 
 
-    funciona la lectura, vrificar el archivo de excel
+typedef struct ty_libro
+{
+	char pregunta[50];
+	char correcta[50];
+	char opcionb[50];
+	char opcionc[50];
+	char opciond[50];
+	char puntuacion[50];
+}NODO[200];
 
-commit 9356642bd9ba663d7a2dc226c74d95c38bd08556
-Author: hjairhc <ic16hhc@antares.dci.uia.mx>
-Date:   Fri Apr 28 13:21:27 2017 -0500
+void main()
+{
+	FILE	*Archivo;
+	int i=0;
+	int j;
+	NODO vLibro;
+	
+	//Abro el archivo en modo lectura
+	Archivo=fopen("libro1.csv","rt");
+	if(Archivo==NULL)
+	{
+		printf("No se pudo abrir el Archivo de Entrada.\n");
+	}
+		else
+		{
+			printf("El archivo se abrio correctamente.\n");
+		}
+	
+	while (!feof(Archivo))
+	{
+	//Esta parte te permite ir guardando las preguntas en cadenas de la estructura	
+	fscanf(Archivo, "%50[^,],%20[^,],%20[^,],%20[^,],%20[^,],%20[^\n]\n", vLibro[i].pregunta, vLibro[i].correcta, vLibro[i].opcionb, vLibro[i].opcionc, vLibro[i].opciond, vLibro[i].puntuacion);
+		i++;  
+	}
+	//Cierro el archivo
+	fclose(Archivo);
+	//Muestro parte del contenido para verificar el correcto
+	for(j=0;j<i;j++)
+	{
+		printf("\nPregunta: %s",vLibro[j].pregunta);
+		printf("\ncorrecta: %s",vLibro[j].correcta);
+		printf("\nOpcionb: %s",vLibro[j].opcionb);
+		printf("\nopcionc: %s",vLibro[j].opcionc);
+		printf("\nopciond: %s",vLibro[j].opciond);
+		printf("\npuntuacion: %s",vLibro[j].puntuacion);
+		printf("\n");
+		
+		
+	}
 
-    Se modifica la forma de lectura de excel, prueba aun
+}
 
-commit d24ce9ce7e855adf4cb97a211bc8a31ef7ccfb12
-Author: hjairhc <ic16hhc@antares.dci.uia.mx>
-Date:   Fri Apr 28 13:12:28 2017 -0500
-
-    Se modifica la forma de lectura de excel, prueba aun
-
-commit c2299216747bd2a99adfd6057ced6dafc5d2b081
-Author: Pichoman <ic14dcl@antares.dci.uia.mx>
-Date:   Thu Apr 27 11:04:01 2017 -0500
-
-    HOLA SOY PICHO
-
-commit a3fe247a12db1b9c9b3b98fa496b4581e5492880
-Author: hjairhc <ic16hhc@antares.dci.uia.mx>
-Date:   Thu Apr 27 09:44:36 2017 -0500
-
-    Mi primer commit
