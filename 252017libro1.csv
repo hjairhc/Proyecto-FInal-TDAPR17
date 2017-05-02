@@ -1,0 +1,21 @@
+ Un ejemplo de codigo sin peso es, XS3, Binario, BCD, hexadecimal, 2
+Que nombre puede recibir un registro en paralelo, Latch, Serial, PROM, REG PAL, 2
+Sistemas que necesitan un reloj, Secuencial, Combinatorio, nose, Hamming, 2
+Que Flip Flop tiene un recuerda negado con 1 1, J k, S R, D, T, 2
+Metodo de reduccion que utiliza implicantes primos, Quinn-McClusky, Mapa de karnaugh, nose, Hamming, 2
+Codigo que ayuda a detectar errores mediante paridad, Haming, Paridad, DER, morfin, 2
+Digito que en un mapa de Karnaugh no importa, Dont' care, Karnaugh, hamming, Mintermino, 2
+Que significa MSI, Medium Scale Integration, Medium Software Intelectual, Minterminos Solos Invertidos, Memory State Integration, 2
+Es una parte de una maquina de estado, Funcion siguiente, Algoritmo, Diagrama, Maquina, 2
+En una tabla de verdad en las salidas los 0 son, Maxterminos, monterminos, Minterminos, Dont' care, 2
+Un ejemplo de conjunto suficiente seria, NAND, Or, Xor, Contador, 3
+Que pata de un GAL es el Clock, 1, 10, 2, 3, 2
+;Si ponemos dos 1 en la entrada de un flip flop SR, cual es su salida;, Invalido, validacion, Recuerda, 0,2
+Cuantos Bits tiene un Nibble, 4, 8, 1, 6, 2
+Cuantas salidas tiene un multiplexor de 4 entradas, 1, 2, 8, 3, 5
+Los sistemas combinatorios tienen memoria, FALSO, Esta no, Esta tampoco, VERDADERO, 2
+En sistemas digitales la onda de salida es de forma, Cuadrada, rectangular, senoidal, cosenoidal, 2
+La compuerta logica que simula una suma es, Or, and, Nand, Xor, 2
+En el sistema Hexadecimal (base 16) que numero es la E, 14, 2, 16, 15, 2
+181 en base 10 convertido a base 16 es, 1211, 9098, 562, 160, 2
+Que compuerta se graba por medio de sistema hexadecimal, EPROM, rojo, AND, AND, 2
