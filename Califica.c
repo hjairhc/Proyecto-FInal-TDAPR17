@@ -10,7 +10,7 @@
 void Califica (int punt_totales, int punt_obtenidos, int correctas, int preg_totales, int num_cuenta, int segundos, char *HojaResultados);
 
 
-void Califica (int punt_totales, int punt_obtenidos, int correctas, int num_cuenta, int segundos, char *HojaResultados){
+void Califica (int punt_totales, int punt_obtenidos, int correctas, int preg_totales, int num_cuenta, int segundos, char *HojaResultados){
 
   float calificacion;
   float min;
