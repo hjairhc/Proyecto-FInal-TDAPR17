@@ -10,6 +10,7 @@ int VALIDAR(int argc, char *archivo);
 void Aplicar(char *Examen, char *Resultados, int alumnos);
 int Rando(int code);
 void BaseDatos ();
+void Calificar ();
 
 
 
@@ -184,19 +185,28 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 
 }//end
 
+void calificar(char *Salida, int spuntos, int sum, int correc, int time);
+{
+	FILE *fp_out;
+	int cont;
+	
+	fp_out=fopen(Salida, "at");
+	if(fp_out==NULL)
+	{
+		printf("El archivo no existe");
+	}
+	fwrite(fp,
+
+
+}
+
+
 int Rando(int code)
 {
 	int x;
 	x=rand()%4+1;
 	return x;
 }
-
-/*
- * Esta es la funcion que valida la existencia de los archivos asi como su correcto funcionamiento,  
- * aqui se manda a llamar la funcion error que despliega mensajes
- *
- */
-
 
 void BaseDatos ()
 {
@@ -246,8 +256,11 @@ sleep(2);
       
  }
 
-
-
+/*
+ * Esta es la funcion que valida la existencia de los archivos asi como su correcto funcionamiento,  
+ * aqui se manda a llamar la funcion error que despliega mensajes
+ *
+ */
 int VALIDAR(int argc, char *archivo)
 {
 	FILE *Verificar;
