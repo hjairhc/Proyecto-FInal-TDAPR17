@@ -1,4 +1,5 @@
 
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -9,9 +10,7 @@ void ERROR(int code);
 int VALIDAR(int argc, char *archivo);
 void Aplicar(char *Examen, char *Resultados, int alumnos);
 int Rando(int code);
-void BaseDatos ();
-void Calificar ();
-
+int BaseDatos ();
 
 
 typedef struct
@@ -57,11 +56,15 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 	char Nombre[30], Cuenta[10];
 	int puntos=0, suma=0, correctas=0, sumapuntos=0;
 	char opcion;
-//Contador de tiempo______________________________________________
-	double segundos = 0;
-	struct timeval final, inicio;
-	double milis;
-	
+	time_t tiempo;
+        struct tm *tlocal; 
+	//struct tm *tfin;
+        char inicio[128];
+	char fin[128];
+	int segInicio;
+	int segFin;
+	int num_cuenta;
+	char Hoja_resultados[20];
 
 	REACTIVO reac;
 	srand(time(NULL));
@@ -71,6 +74,8 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 //Aqui va la informacion donde verifica la existencia en la base de datos
 //_--------------------------------------------------------------------------------------
 	
+	strcat(Resultados, "txt");
+	strcpy(Hoja_resultados, Resultados);
 	strcat(Examen, ".csv");
 	fp=fopen(Examen, "rt");	
 	if(fp==NULL)
@@ -87,14 +92,19 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 	for(cont=1;cont<=alumnos;cont++)
 	{
 		system("clear");
-		BaseDatos();
+		num_cuenta= BaseDatos();
 		printf("\n\n\t\tCargando examen\n");
 		sleep(2);
 		system("clear");
 		getchar();
+		tiempo= time(NULL);
+		tlocal= localtime(&tiempo);
+		segInicio=tiempo;
+      		strftime(inicio,128,"%H:%M:%S",tlocal);
+		printf("\n\n\nHora de inicio: %s\nPresiona Intro para comenzar\n\n",inicio);
+		getchar();
 		for(cont2=0;cont2<i;cont2++)
 		{	system("clear");
-			gettimeofday(&inicio, NULL);
 			aleatorio=Rando(aleatorio);
 			if(aleatorio==1)
 			{
@@ -171,34 +181,30 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 			}//else
 		
 		}//for cont2
-			gettimeofday(&final, NULL);
-			segundos = (double)(final.tv_usec - inicio.tv_usec) / 1000000 + (double)(final.tv_sec - inicio.tv_sec);
-			milis = segundos * 1000;
-			printf("Tiempo: %8.6f milisegundos\n", milis);	
-			printf("\n\nLos puntos totales son: %d", sumapuntos);
-			printf("\n\nSuma total es: %d", suma);
-			printf("\n\nCorrectas totales son: %d\n\n\n", correctas);
-			printf("\n\nPresione Intro para salir\n\n");
+			tiempo= time(NULL);
+			tlocal= localtime(&tiempo);
+			segFin=segInicio-tiempo;
+
+			if(segFin<0)
+			  {
+				    segFin= segFin* (-1);
+			  }
+			system("clear");
+			strftime(fin,128,"%H:%M:%S",tlocal);
+			printf("Hora de termino: %s\n",fin);
+			printf("\nSegundos tardados: %d", segFin);
+			printf("\nNumero de cuenta es: %d\n", num_cuenta);
+			printf("\nLos puntos totales son: %d", sumapuntos);
+			printf("\nSuma total es: %d", suma);
+			printf("\nCorrectas totales son: %d\n\n\n", correctas);
+			printf("\nPresione Intro para salir\n\n");
 			getchar();
+			//Calificar(sumapuntos, suma, correctas, num_cuenta, segFin, Hoja_resultados);
 	}//for cont
 
 
 }//end
 
-void calificar(char *Salida, int spuntos, int sum, int correc, int time);
-{
-	FILE *fp_out;
-	int cont;
-	
-	fp_out=fopen(Salida, "at");
-	if(fp_out==NULL)
-	{
-		printf("El archivo no existe");
-	}
-	fwrite(fp,
-
-
-}
 
 
 int Rando(int code)
@@ -208,7 +214,7 @@ int Rando(int code)
 	return x;
 }
 
-void BaseDatos ()
+int BaseDatos ()
 {
   int i=0;
   int j=0;
@@ -216,6 +222,7 @@ void BaseDatos ()
   int igual;
   char num_cuenta[7];
   char cuenta2[10];
+  int num;
 
   datos alumno;
 
@@ -226,7 +233,7 @@ do{
   printf("\n\t BIENVENIDO - Universidad Iberoamericana -\n");
   printf("\nPor favor ingrese su numero de cuenta:\n");
   scanf("%s", num_cuenta);
-
+  num=atoi(num_cuenta);
   while (!feof(Alumnos))
     {
       fscanf(Alumnos, "%30[^,],%7[^\n]\n",alumno[i].nombre, alumno[i].cuenta);
@@ -251,9 +258,9 @@ do{
 sleep(2);
     }
 }while (valida==0);
-	
+  
   fclose(Alumnos);  
-      
+  return(num);    
  }
 
 /*
