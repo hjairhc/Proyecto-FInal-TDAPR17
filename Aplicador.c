@@ -65,6 +65,7 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 	int segFin;
 	int num_cuenta;
 	char Hoja_resultados[20];
+	int preguntas_totales;
 
 	REACTIVO reac;
 	srand(time(NULL));
@@ -88,7 +89,7 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
  		fscanf(fp, "%200[^,], %100[^,], %100[^,], %100[^,], %100[^,], %4[^\n]\n", reac[i].pregunta, reac[i].opca, reac[i].opcb, reac[i].opcc, reac[i].opcd, reac[i].valor);
     i++;	
 	}
-
+	preguntas_totales=i;
 	for(cont=1;cont<=alumnos;cont++)
 	{
 		system("clear");
@@ -103,6 +104,7 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
       		strftime(inicio,128,"%H:%M:%S",tlocal);
 		printf("\n\n\nHora de inicio: %s\nPresiona Intro para comenzar\n\n",inicio);
 		getchar();
+
 		for(cont2=0;cont2<i;cont2++)
 		{	system("clear");
 			aleatorio=Rando(aleatorio);
@@ -112,7 +114,14 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("Pregunta %d: %s\n", cont2+1, reac[cont2].pregunta);
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opca, reac[cont2].opcb, reac[cont2].opcc, reac[cont2].opcd);
 				printf("\n\nOpcion: ");
-				scanf("%c", &opcion);
+				do{
+					scanf("%c", &opcion);
+					if(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d')
+						{
+							printf("\n\nOpcion invalida, Ingrese de nuevo: ");
+							scanf("%c", &opcion);
+						}
+}while(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d');
 				puntos=atoi(reac[cont2].valor);
 				if(opcion=='a')
 				{			
@@ -131,7 +140,14 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("Pregunta %d: %s\n", cont2+1, reac[cont2].pregunta);
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opcb, reac[cont2].opca, reac[cont2].opcd, reac[cont2].opcc);
 				printf("\n\nOpcion: ");
-				scanf("%c", &opcion);
+				do{
+					scanf("%c", &opcion);
+					if(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d')
+						{
+							printf("\n\nOpcion invalida, Ingrese de nuevo: ");
+							scanf("%c", &opcion);
+						}
+}while(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d');
 				puntos=atoi(reac[cont2].valor);
 				if(opcion=='b')
 				{			
@@ -149,7 +165,14 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("Pregunta %d: %s\n", cont2+1, reac[cont2].pregunta);
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opcd, reac[cont2].opcc, reac[cont2].opca, reac[cont2].opcb);
 				printf("\n\nOpcion: ");
-				scanf("%c", &opcion);
+				do{
+					scanf("%c", &opcion);
+					if(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d')
+						{
+							printf("\n\nOpcion invalida, Ingrese de nuevo: ");
+							scanf("%c", &opcion);
+						}
+}while(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d');
 				puntos=atoi(reac[cont2].valor);
 				if(opcion=='c')
 				{	
@@ -167,7 +190,14 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("Pregunta %d: %s\n", cont2+1, reac[cont2].pregunta);
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opcb, reac[cont2].opcc, reac[cont2].opcd, reac[cont2].opca);
 				printf("\n\nOpcion: ");
-				scanf("%c", &opcion);
+				do{
+					scanf("%c", &opcion);
+					if(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d')
+						{
+							printf("\n\nOpcion invalida, Ingrese de nuevo: ");
+							scanf("%c", &opcion);
+						}
+}while(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d');
 				if(opcion=='d')
 				puntos=atoi(reac[cont2].valor);
 				{			
@@ -194,12 +224,12 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 			printf("Hora de termino: %s\n",fin);
 			printf("\nSegundos tardados: %d", segFin);
 			printf("\nNumero de cuenta es: %d\n", num_cuenta);
-			printf("\nLos puntos totales son: %d", sumapuntos);
-			printf("\nSuma total es: %d", suma);
-			printf("\nCorrectas totales son: %d\n\n\n", correctas);
+			printf("\nLos puntos generados son: %d, de un total de: %d", suma, sumapuntos);
+			printf("\nCorrectas totales son: %d de un total de: %d\n\n\n", correctas, preguntas_totales);
 			printf("\nPresione Intro para salir\n\n");
+	
 			getchar();
-			//Calificar(sumapuntos, suma, correctas, num_cuenta, segFin, Hoja_resultados);
+			//Calificar(sumapuntos, suma, correctas, preguntas_totales, num_cuenta, segFin, Hoja_resultados);
 	}//for cont
 
 
