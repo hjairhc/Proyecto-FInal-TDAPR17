@@ -56,7 +56,12 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 	char Nombre[30], Cuenta[10];
 	int puntos=0, suma=0, correctas=0, sumapuntos=0;
 	char opcion;
+//Contador de tiempo______________________________________________
+	double segundos = 0;
+	struct timeval final, inicio;
+	double milis;
 	
+
 	REACTIVO reac;
 	srand(time(NULL));
 	
@@ -88,7 +93,7 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 		getchar();
 		for(cont2=0;cont2<i;cont2++)
 		{	system("clear");
-		
+			gettimeofday(&inicio, NULL);
 			aleatorio=Rando(aleatorio);
 			if(aleatorio==1)
 			{
@@ -97,13 +102,13 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opca, reac[cont2].opcb, reac[cont2].opcc, reac[cont2].opcd);
 				printf("\n\nOpcion: ");
 				scanf("%c", &opcion);
+				puntos=atoi(reac[cont2].valor);
 				if(opcion=='a')
 				{			
-					puntos=atoi(reac[cont2].valor);
-					sumapuntos=sumapuntos+puntos;
 					suma=suma+puntos;
 					correctas=correctas+1;
 				}
+				sumapuntos=sumapuntos+puntos;
 				getchar();
 				printf("Presiona INTRO para la siguiente pregunta\n\n");
 				getchar();
@@ -116,13 +121,13 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opcb, reac[cont2].opca, reac[cont2].opcd, reac[cont2].opcc);
 				printf("\n\nOpcion: ");
 				scanf("%c", &opcion);
+				puntos=atoi(reac[cont2].valor);
 				if(opcion=='b')
 				{			
-					puntos=atoi(reac[cont2].valor);
-					sumapuntos=sumapuntos+puntos;
 					suma=suma+puntos;
 					correctas=correctas+1;
 				}
+				sumapuntos=sumapuntos+puntos;
 				getchar();
 				printf("Presiona INTRO para la siguiente pregunta\n\n");
 				getchar();
@@ -134,13 +139,13 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opcd, reac[cont2].opcc, reac[cont2].opca, reac[cont2].opcb);
 				printf("\n\nOpcion: ");
 				scanf("%c", &opcion);
+				puntos=atoi(reac[cont2].valor);
 				if(opcion=='c')
-				{			
-					puntos=atoi(reac[cont2].valor);
-					sumapuntos=sumapuntos+puntos;					
+				{	
 					suma=suma+puntos;
 					correctas=correctas+1;
 				}
+				sumapuntos=sumapuntos+puntos;		
 				getchar();
 				printf("Presiona INTRO para la siguiente pregunta\n\n");
 				getchar();
@@ -153,23 +158,29 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("\n\nOpcion: ");
 				scanf("%c", &opcion);
 				if(opcion=='d')
+				puntos=atoi(reac[cont2].valor);
 				{			
-					puntos=atoi(reac[cont2].valor);
-					sumapuntos=sumapuntos+puntos;					
 					suma=suma+puntos;
 					correctas=correctas+1;
-				}				
+				}	
+				sumapuntos=sumapuntos+puntos;				
 				getchar();				
 				printf("Presiona INTRO para la siguiente pregunta\n\n");
 				getchar();
 			}//else
 		
 		}//for cont2
-			getchar();
+			gettimeofday(&final, NULL);
+			segundos = (double)(final.tv_usec - inicio.tv_usec) / 1000000 + (double)(final.tv_sec - inicio.tv_sec);
+			milis = segundos * 1000;
+			printf("Tiempo: %8.6f milisegundos\n", milis);	
 			printf("\n\nLos puntos totales son: %d", sumapuntos);
 			printf("\n\nSuma total es: %d", suma);
-			printf("\n\nCorrectas totales son: %d\n\n\n", correctas);	
+			printf("\n\nCorrectas totales son: %d\n\n\n", correctas);
+			printf("\n\nPresione Intro para salir\n\n");
+			getchar();
 	}//for cont
+
 
 }//end
 
@@ -200,7 +211,7 @@ void BaseDatos ()
 
   FILE *Alumnos;
   Alumnos = fopen("ALUMNOS.csv", "rt");
-
+do{
   system("clear");
   printf("\n\t BIENVENIDO - Universidad Iberoamericana -\n");
   printf("\nPor favor ingrese su numero de cuenta:\n");
@@ -215,7 +226,6 @@ void BaseDatos ()
   system("clear");
   for(j=0; j<=i; j++)
     {
-      //printf("\n%d %s", j, alumno[j].cuenta);
       if(strcmp(num_cuenta,alumno[j].cuenta)==0)
 	{
 	  printf("\nHola %s\n", alumno[j].nombre);
@@ -224,13 +234,14 @@ void BaseDatos ()
     }
 
  
-  if(valida==0)
+     if(valida==0)
     {
       printf("ERROR: usted no esta registrado, o ha escrito mal su numero de cuenta.\n");
       printf("\nFavor de intentar de nuevo.\n");
-      exit(1);
+sleep(2);
     }
-
+}while (valida==0);
+	
   fclose(Alumnos);  
       
  }
