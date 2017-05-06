@@ -269,7 +269,7 @@ void Califica (int punt_totales, int punt_obtenidos, int correctas, int preg_tot
  
   result= fopen(HojaResultados, "a");
   fprintf(result, "%d, %.2f, %d/%d, %d:%d, %d/%d\n", num_cuenta, calificacion, correctas, preg_totales, minutos, seg, punt_obtenidos, punt_totales);
-  fclose(result);
+  fclose(resut);
 }//funcion Califica
 
 int Rando(int code)
@@ -376,4 +376,3 @@ void ERROR(int code)
 			printf("\n\nEl aplicador de examenes se ejecuta de la siguiente forma:\n\n./Aplicador|| Archivo.csv de donde proviene el examen||Nombre de la hoja de resultados|| Numero de alumnos que hacen el examen.\n\n\n");
 		}
 }
-
