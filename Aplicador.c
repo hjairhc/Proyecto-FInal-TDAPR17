@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -68,11 +69,6 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 
 	REACTIVO reac;
 	srand(time(NULL));
-	
-
-//----------------------------------------------------------------------------------------
-//Aqui va la informacion donde verifica la existencia en la base de datos
-//_--------------------------------------------------------------------------------------
 	
 	strcat(Resultados, ".txt");
 	strcpy(Hoja_resultados, Resultados);
@@ -230,17 +226,18 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 			getchar();
 
 			Califica(sumapuntos, suma, correctas, preguntas_totales, num_cuenta, segFin, Hoja_resultados);
-
-			sleep(5);
-			
 			suma=0;
 			sumapuntos=0;
 			correctas=0;
 			
+
+			//Calificar(sumapuntos, suma, correctas, preguntas_totales, num_cuenta, segFin, Hoja_resultados);
+
 	}//for cont
 
 
 }//end
+
 
 void Califica (int punt_totales, int punt_obtenidos, int correctas, int preg_totales, int num_cuenta, int segundos, char *HojaResultados){
   
@@ -271,6 +268,7 @@ void Califica (int punt_totales, int punt_obtenidos, int correctas, int preg_tot
   fprintf(result, "%d, %.2f, %d/%d, %d:%d, %d/%d\n", num_cuenta, calificacion, correctas, preg_totales, minutos, seg, punt_obtenidos, punt_totales);
   fclose(resut);
 }//funcion Califica
+
 
 int Rando(int code)
 {
@@ -376,3 +374,4 @@ void ERROR(int code)
 			printf("\n\nEl aplicador de examenes se ejecuta de la siguiente forma:\n\n./Aplicador|| Archivo.csv de donde proviene el examen||Nombre de la hoja de resultados|| Numero de alumnos que hacen el examen.\n\n\n");
 		}
 }
+
