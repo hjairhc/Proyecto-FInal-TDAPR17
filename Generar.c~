@@ -5,7 +5,6 @@
 #include<string.h>
 #include<time.h>
 
-//#define TRUE 0
 
 typedef struct preguntas
 {

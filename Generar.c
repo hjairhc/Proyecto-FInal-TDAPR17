@@ -5,7 +5,6 @@
 #include<string.h>
 #include<time.h>
 
-//#define TRUE 0
 
 typedef struct preguntas
 {
@@ -72,7 +71,6 @@ void ExtraePreguntas (char *nombre, char *numero){
   FILE *fo;
   int num, aleatorio, ocupado=0;
   int i=0, j=0, c=0, h=0; //contadores
-  char linea[1000];
   char nombreArchivo[20];
   REACTIVO reac, examen;
   int numReactivos[25];
@@ -90,7 +88,7 @@ void ExtraePreguntas (char *nombre, char *numero){
   
   while(!feof(fo))
   {
-    //fgets(linea, sizeof(linea), fo);
+
     fscanf(fo, "%200[^,], %100[^,], %100[^,], %100[^,], %100[^,], %4[^\n]\n", reac[i].pregunta, reac[i].opca, reac[i].opcb, reac[i].opcc, reac[i].opcd, reac[i].valor);
     i++;
     

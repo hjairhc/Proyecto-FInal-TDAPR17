@@ -1,14 +1,5 @@
 /*Este programa calcula los segundos en que se tarda el usuario en contestar una pregunta*/
 
-/*do{
-					scanf("%c", &opcion);
-					if(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d')
-						{
-							printf("\n\nOpcion invalida, Ingrese de nuevo: ");
-							scanf("%c", &opcion);
-						}
-}while(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d');
-*/
 #include <stdio.h>
 #include <time.h>
 
