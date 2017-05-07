@@ -25,6 +25,12 @@ int main (void)
 
   //abrimos el archivo en modo lectura.
   Alumnos = fopen("ALUMNOS.csv", "rt");
+  if(Alumnos==NULL)
+  {
+	Alumnos=fopen("ALUMNOS.csv", "wt");
+	fclose(Alumnos);
+	Alumnos=fopen("ALUMNOS.csv", "rt");
+   }
 
   system("clear");//Limpiamos pantalla
   printf("\n\t BIENVENIDO - Universidad Iberoamericana -\n");

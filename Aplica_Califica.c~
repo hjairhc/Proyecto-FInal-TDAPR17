@@ -317,26 +317,16 @@ void Califica (int punt_totales, int punt_obtenidos, int correctas, int preg_tot
   fprintf(result, "%d, %.2f, %d/%d, %d:%d, %d/%d\n", num_cuenta, calificacion, correctas, preg_totales, minutos, seg, punt_obtenidos, punt_totales);
   fclose(result);
 }//funcion Califica
-//________________________________________________________________________________
 
-/*
-* Esta funcion se encarga de generar numeros aleatorios.
-*/
 int Rando(int code)
 {
 	int x;
 	x=rand()%4+1;
 	return x;
 }
-//________________________________________________________________________________
 
-/*
-* Esta funcion se encarga de verificar en la base de datos la existencia de un alumno para
-* que en Aplicar examen se le otorge derecho a hacer el examen.
-*///_____________________________________________________________________________
 int BaseDatos ()
 {
-	//Variables
   int i=0;
   int j=0;
   int valida=0;
@@ -355,7 +345,6 @@ do{
   printf("\nPor favor ingrese su numero de cuenta:\n");
   scanf("%s", num_cuenta);
   num=atoi(num_cuenta);
-	//Mientras el archivo no se termine se lee
   while (!feof(Alumnos))
     {
       fscanf(Alumnos, "%30[^,],%7[^\n]\n",alumno[i].nombre, alumno[i].cuenta);
@@ -363,7 +352,6 @@ do{
     }
 
   system("clear");
-	//Se compara el numero de cuenta para ver si existe
   for(j=0; j<=i; j++)
     {
       if(strcmp(num_cuenta,alumno[j].cuenta)==0)
@@ -381,23 +369,21 @@ do{
 sleep(2);
     }
 }while (valida==0);
-  //cerramos el archivo
+  
   fclose(Alumnos);  
   return(num);    
  }
-//____________________________________________________________________________
 
 /*
  * Esta es la funcion que valida la existencia de los archivos asi como su correcto funcionamiento,  
  * aqui se manda a llamar la funcion error que despliega mensajes
  *
- *///__________________________________________________________________________
+ */
 int VALIDAR(int argc, char *archivo)
 {
-	//variables
 	FILE *Verificar;
 	char Nombrearchivo[30];	
-	//si los argumentos son 4 se envia un 1 al main para que se prosiga
+
  	if(argc==4)
 	{
 		strcpy(Nombrearchivo, archivo);
