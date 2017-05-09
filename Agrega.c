@@ -1,3 +1,19 @@
+/***********************************************************************************************************************************************
+Proyecto final "Taller de Desarrollo de Aplicaciones"
+Primavera 2017
+    **Sistema que genera, aplica y evalúa exámenes**
+
+Nombre del modulo: Agrega.c
+Nombre del ejecutable: Agrega
+Descripción: Este modulo es el que usara el profesor para agregar a un alumno a la base de datos, tiene que ingresar el número de cuenta de dicho alumno y su nombre completo
+Realizado por:
+   David Castillo
+   Jair Hernández
+   Itzel Pérez
+***********************************************************************************************************************************************/
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

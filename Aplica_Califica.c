@@ -1,7 +1,27 @@
+/*
+Proyecto final "Taller de Desarrollo de Aplicaciones"
+Primavera 2017
+    **Sistema que genera, aplica y evalúa exámenes**
+
+Nombre del modulo: Aplica_Califica.c
+Nombre del ejecutable: Aplicador
+Descripción: Este modulo se encarga de Aplicar el examen a cierto número de alumnos, califica los resultados y los guarda en un archivo de texto.
+
+Realizado por:
+   David Castillo
+   Jair Hernández
+   Itzel Pérez
+*/
+
+
+//Bibliotecas
+//______________________________________________________
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+//______________________________________________________
+
 
 //Prototipos de funciones
 //______________________________________________________

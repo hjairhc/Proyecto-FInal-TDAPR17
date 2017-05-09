@@ -1,11 +1,28 @@
-/*Este modulo es que usara el profesor para generar el examen, desde la linea de comandoa ingresara el nombre del ejecutable, el nombre del banco de preguntas, y el numero de preguntas deseadas*/
+/***********************************************************************************************************************************************
+Proyecto final "Taller de Desarrollo de Aplicaciones"
+Primavera 2017
+    **Sistema que genera, aplica y evalúa exámenes**
 
+Nombre del modulo: Generar.c
+Nombre del ejecutable: Generar
+Descripción: Este modulo es el que usara el profesor para generar el examen, desde la línea de comandos ingresara el nombre del ejecutable, el nombre del banco de preguntas, y el numero de preguntas deseadas
+
+Realizado por:
+   David Castillo
+   Jair Hernández
+   Itzel Pérez
+***********************************************************************************************************************************************/
+
+//Bibliotecas
+//______________________________________________________
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+//______________________________________________________
 
 
+//Se define una estructura para almacenar los reactivos que se encuentran en el banco de preguntas seleccionado por el usuario
 typedef struct preguntas
 {
   char pregunta[200];
@@ -16,11 +33,18 @@ typedef struct preguntas
   char valor[5];
 }REACTIVO[100];
 
-
+//Prototipos de funciones
+//______________________________________________________
 int verificaExist (char *nombre);
 void ExtraePreguntas (char *nombre, char *numero);
 void Guardar (REACTIVO examen, int numReactivos[25], char *nombreArchivo, int num);
-  
+//______________________________________________________
+
+
+
+/* El main se encarga de verificar los argumentos desde la linea de comandos y hacer las
+* llamadas de las funciones para que el programa pueda funcionar.
+*///___________________________________________________________________________________  
 void main (int argc, char * argv[]) //Funcion principal con parametros
 {
   int verificador;
@@ -41,32 +65,37 @@ void main (int argc, char * argv[]) //Funcion principal con parametros
     }
   
   
-  ExtraePreguntas(argv[1], argv[2]); //Nota para el equipo: esta va a ser la funcion que ya tenemos, hay que adaptarla, ya recibiria el numero de preguntas
+  ExtraePreguntas(argv[1], argv[2]); //Manda a llamar a la funcion que se encarga de extraer n numero de preguntas aleatoriamente
 }//main
 
 
+/* Se encarga de verificar que el archivo exista, en caso de que no exista su valor de retorno será 1
+* y en caso de que si exista el archivo, su valor de retorno será 0 para indicar que el proceso puede continuar
+*///___________________________________________________________________________________ 
 int verificaExist (char *nombre){
 
 FILE	*Archivo;
  char nombreArchivo[20];
  
- strcpy(nombreArchivo,nombre);
- strcat(nombreArchivo, ".csv");
+ strcpy(nombreArchivo,nombre); //copia el nombre recibido en una cadena de caracteres
+ strcat(nombreArchivo, ".csv"); //concatena el nombre conm la extensión que debe tener el archivo
  
   
 	Archivo=fopen(nombreArchivo ,"rt");
 	if(Archivo==NULL)
 	{
-		return 1;
+	  return 1; //si no existe, regresa 1
 	}
 		else
 		{
 			printf("El archivo se abrio correctamente.\n");
-return 0;
+			return 0; //si existe, regresa 0
 		}
 }//verificaExist
 
-/*Esta funcion selecciona de modo aleatorio ciertas preguntas del banco de preguntas (de acuerdo al numero que el usuario eligió)*/
+
+/*Esta funcion selecciona de modo aleatorio ciertas preguntas del banco de preguntas (de acuerdo al numero que el usuario eligió)
+ *///______________________________________________________________________________________________________________________________
 void ExtraePreguntas (char *nombre, char *numero){
   FILE *fo;
   int num, aleatorio, ocupado=0;
@@ -77,9 +106,9 @@ void ExtraePreguntas (char *nombre, char *numero){
 
   srand (time(NULL));
   
-  num= atoi(numero);
-  strcpy(nombreArchivo,nombre);
-  strcat(nombreArchivo, ".csv");
+  num= atoi(numero); //convierte a entero el numero que el usuario ingresó desde la lpinea de comandos
+  strcpy(nombreArchivo,nombre); //copia el nombre recibido en una cadena de caracteres
+  strcat(nombreArchivo, ".csv"); //copia el nombre recibido en una cadena de caracteres
 #ifdef TRUE
   printf("Nombre archivo: %s", nombreArchivo);
 #endif
@@ -96,7 +125,7 @@ void ExtraePreguntas (char *nombre, char *numero){
     printf ("\n%s", linea);
     printf ("\n\n\n%d", i);
     #endif
-  }
+  } //mientras haya qué leer se extraerá línea por línea y se va separando cada campo, al mismo tiempo que se llena la extructura con cada uno de los reactivos
   fclose(fo);
   
 #ifdef TRUE
@@ -119,7 +148,7 @@ void ExtraePreguntas (char *nombre, char *numero){
       exit(1);
     }
 
-  if (i>=num)
+  if (i>=num) //Si el numero de reactivos es mayor al numero de preguntas seleccionado para el examen, va a seleccionar preguntas aleatoriamente
     {
       for(j=0; j<num; j++)
 	{
@@ -161,13 +190,13 @@ void ExtraePreguntas (char *nombre, char *numero){
       strcpy(examen[j].valor,reac[c].valor);
     }
 
-  Guardar(examen, numReactivos, nombreArchivo, num);
+  Guardar(examen, numReactivos, nombreArchivo, num); //Manda a llamara  la función que guardará las preguntas seleccionadas para el examen
 }//ExtraePreguntas
 
 void Guardar (REACTIVO examen, int numReactivos[25], char *nombreArchivo, int num)
 {
 
-  //La parte del codigo para obtener la fecha actual, se ivestigo y se obtuvo de blogspot.mx
+  //Una parte del codigo para obtener la fecha actual, se inestigo y se obtuvo de blogspot.mx
  struct tm *fecha;
  int dia;
  int mes;
@@ -186,6 +215,7 @@ void Guardar (REACTIVO examen, int numReactivos[25], char *nombreArchivo, int nu
  
  //printf("\n%d %d %d \n", dia, mes, anio);
 
+ //Agrega la fecha del dia en que se está generando el examen + el nombre del banco de preguntas del cual se extrae
  sprintf(nombreExamen, "%d%d%d", dia, mes, anio);
  strcat(nombreExamen, nombreArchivo);
  printf("\nNombre del Examen: %s \n", nombreExamen);
@@ -209,6 +239,7 @@ void Guardar (REACTIVO examen, int numReactivos[25], char *nombreArchivo, int nu
    }
  fclose(fo);
 
+ //Guarda en el archivo las preguntas, en cada línea un reactivo.
  fo= fopen(nombreExamen, "a");
   for (j=0; j<num; j++)
    {
