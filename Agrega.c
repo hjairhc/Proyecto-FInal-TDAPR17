@@ -13,13 +13,15 @@ Realizado por:
 ***********************************************************************************************************************************************/
 
 
-
+//Declaramos bibliotecas.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+//Estructura de datos
 typedef struct
 {
+	//numero de cuenta y nombre del alumno.
   char cuenta[7];
   char nombre[30];
 } datos[100];
@@ -41,6 +43,8 @@ int main (void)
 
   //abrimos el archivo en modo lectura.
   Alumnos = fopen("ALUMNOS.csv", "rt");
+	
+//Si el archivo ALUMNOS.csv no existe, el programa crea uno
   if(Alumnos==NULL)
   {
 	Alumnos=fopen("ALUMNOS.csv", "wt");
@@ -52,9 +56,10 @@ int main (void)
   printf("\n\t BIENVENIDO - Universidad Iberoamericana -\n");
   printf("\n\tAGREGAR ALUMNOS\n");
 
-  //leemos renglones en formato csv.
+  //leemos renglones en formato .csv hasta el final del archivo
   while (!feof(Alumnos))
     {
+	  //Formato .csv (Separado por comas).
       fscanf(Alumnos, "%30[^,],%7[^\n]\n",alumno[i].nombre, alumno[i].cuenta);
       i++; //incrementamos contador de renglones
     }
@@ -63,6 +68,7 @@ int main (void)
   gets(cuenta2); // leemos numero de cuenta
 
 
+//Comparamos todos los numeros de cuenta con el que ingreso el profesor
   for(j=0; j<=i; j++)
     {
       //Si el numero de cuenta ya existe, se lo hacemos saber al profesor
@@ -88,13 +94,13 @@ int main (void)
    
   printf("\n%s Se ha agregado a la base de datos\n", nombre_nuevo);
   
-  //Imprimimos el nombre y numero de cuenta del alumno agregado en la base de datos.
+  //Reescribimos los datos de todos los alumnos
   for(ren=0; ren<i; ren++)
     {
       fprintf(Alumnos, "%s,%s\n", alumno[ren].nombre, alumno[ren].cuenta);
       // printf("\n%s,%s", alumno[ren].nombre, alumno[ren].cuenta);
     }
-  
+  //Escribimos los datos del alumno agregado
   fprintf(Alumnos, "%s,%s\n", nombre_nuevo, cuenta2);
   
   //cerramos archivo
