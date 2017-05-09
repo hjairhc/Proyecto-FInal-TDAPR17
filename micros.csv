@@ -1,0 +1,20 @@
+Padre de la computacion digital,Charles Babbage,George Bool,Alan Turing,Steve Jobs,1
+Inventor del bulbo,Lee Forest,Bill Gates,William Schickard,Bernard Van Der Mersch,1
+Sistema computacional dedicado a realizar una o algunas funciones especificas,Sistema embebido,System of a Down,Sistema binario,Sistema operativo,3
+Interpreta y ejecuta instrucciones y datos,Procesador,Memoria RAM,Program counter,Unidad de control,3
+Almacena datos e instrucciones,Memoria,Program counter,KL25Z,PWM,2
+¿De que tipo es la memoria RAM?,Volatil,No volatil,De datos,De instrucciones,2
+Es la memoria mas rapida y guarda los ultimos datos e instrucciones ejecutables,Cache,RAM,ROM,Disco Duro,2
+Unidad que realiza operaciones aritmeticas y logicas,ALU,AND,OR,UC,2
+Almacena datos binarios pero es muy limitdo y de ancho fijo,Registro,Cache,RAM,Disco Duro,3
+Guarda la loalidad de memoria que se ejecuta siguiente,Program Counter,Unidad de Control,Acumulador,ALU,3
+Via de comunicacion que conecta 2 o mas dispositivos,Buses,Cables,Internet,Telcel,2
+Al procesamiento con multiples “Cores” tambien se le conoce como: ,Procesamiento paralelo,Pipeline,Fetch,Procesamiento en serie,4
+Microprocesador de arquitectura RISC que es la version reducida del MIPS,Mini MIPS,KL25Z,Arduino,Intel Pentium 4,3
+Formato de instruccion que te permite ir a una etiqueta o funcion,Jump,Inmediata,Store,Load,3
+Microcontrolador de bajo costo y programable el cual puede realizar infinidad de funciones e implementarlas en un circuito,KL25Z,Arduino,mbed,KL27Z,4
+Primer dispositivo personal para hacer calculos,Abaco,Calculadora,Regla de caculo,Computadora,1
+Primera version de Windows en ser utilizada,Windows 3.1,Windows 1,Windows 95,Windows xp,1
+Dispositivo electronico capaz de realizar varios calculos a la vez,Computadora,Calculadora,Sistema embebido,Celular,2
+Las memorias volatiles se caracterizan por:,Su alta velocidad y poca capacidad,Su alta capacidad y baja velocidad,Almacenar informacion,Almacenar instrucciones,4
+Permite acelerar el procesamiento de informacion ejecutando una instruccion instantes despues de haber ejecutado otra,Pipeline,RAM,Procesamiento paralelo,Fetch,4
