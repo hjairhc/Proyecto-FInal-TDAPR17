@@ -28,8 +28,8 @@ int main (void)
   if(Alumnos==NULL)
   {
 	Alumnos=fopen("ALUMNOS.csv", "wt");
-	fclose(Alumnos);
-	Alumnos=fopen("ALUMNOS.csv", "rt");
+	//fclose(Alumnos);
+	//Alumnos=fopen("ALUMNOS.csv", "rt");
    }
 
   system("clear");//Limpiamos pantalla
