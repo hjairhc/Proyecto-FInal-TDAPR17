@@ -1,0 +1,23 @@
+,,,,,
+Modelo de bases de datos se segunda generación,Modelo relacional,Modelo jerárquico,Modelo de red,Ninguna de las opciones,4
+El modelo de bases de datos jerárquico pertenece a la misma generación que el modelo _______,De red,Orientado a objetos,Relacional,Todas las opciones,3
+Un DBMS ofrece dentro de sus servicios:,Todas las opciones,Permite definición de datos,Permite asignar privilegios,Insertar Actualizar Eliminar Consultar,3
+Dentro de los grupos de usuarios  el ____ es quien conoce todos los elementos de la base de datos.,Administrador,Diseñador,Programador,Usuario final,3
+Este nivel se especifica mediante el modelo físico: todos los detalles de almacenamiento,Nivel interno,Nivel conceptual,Nivel externo,Ninguna de las opciones,5
+El nivel externo de la arquitectura va dirigido al,Usuario final,Diseñador,Programador,Administrador,4
+La independencia de datos ______ tiene la capacidad de modificar la estructura de la base sin necesidad de cambiar los programas de aplicación.,Lógica,Fisica,Interna,Ninguna de las opciones,3
+La independencia de datos ______ tiene la capacidad deshacer algún cambio físico sin cambiar el esquema conceptual.,Física,Lógica,Ambas opciones,Ninguna de las opciones,3
+Cardinalidades de mapeo,Todas las opciones,Una a una y muchas a una,Una a muchas y muchas a muchas,Ninguna de las opciones,4
+Es una limitante de mapeo:,Dependencia de existencia,Características de atributos,Dependencia de datos,Conjunto de relaciones,4
+En en diagrama entidad-relación se representa con doble línea:,Entidad débil,Entidad dominante,Entidad fuerte,Ninguna de las opciones,4
+Este elemento no aparece en el diagrama entidad-relación,Llave externa,Llave primaria,Cardinalidad,Participación,2
+Atributo que permite identificar como único a cada uno de los registros,Llave primaria,Identificador,Llave externa,Numeracion,2
+Una ___ es todo aquel renglón de una relación (tabla),Tupla,Entidad ,Llave,Ninguna de las opciones,2
+Nombre de una columna de una relación:,Atributo,Entidad ,Dominio,Grado,2
+Conjunto de valores legales de uno o varios atributos,Dominio,Grado,Cardinalidad,Ninguna de las opciones,2
+Se le llama así al numero de atributos que contiene una relación,Grado,Cardinalidad,Dominio,Tupla,2
+Se le llama así al numero de tuplas que contiene una relación,Cardinalidad,Grado,Dominio,Ninguna de las opciones,2
+Una relación es un conjunto de _____  no una lista de tuplas.,Ninguna de las opciones,Dominios,Entidades,Atributos,3
+¿Qué relación genera una tabla de resultados intermedios?,Muchos a muchos,Muchos a uno,Uno a muchos,Muchos a uno,3
+La integridad de datos se compone de:,Todas las opciones,Restricción de dominios,Regla de identidad de entidades,Regla de identidad referencial,3
+Cada llave externa debe responder a cuatro reglas y una de ellas es,Regla de borrado,Regla de identidad de entidades,Regla de identidad referencial,Regla de manejo de datos,3
