@@ -12,3 +12,8 @@ Inicia un nuevo repositorio,git init,git add archivo,git status,git commit -m,2
 Comando que permite crear una nueva rama,git branch nombre_rama,git add archivo,git status,git commit -m,4
 La parte del ___ nos permite tener una guía para generar el codigo,disenio,especificaciones,documentacion,comentarios,3
 Esto nos ayuda a comprender mejor el codigo cuando lo volvemos a leer,comentarios,modularidad,prototipos de funciones,analisis,3
+Comando que permite en Github borrar,git rm,git status,git delete,Esta no,3
+Menciona el editor de texto que le gusta al Profesor Edgar,emacs,atom,sublime,No lo se,4
+Comando en github que permite resetear un HEAD,git reset,git reset -A,Git commit -m “mensaje”,Esta no,3
+Comando en github que muestra tus ultimos movimientos,git status,git pull,git merge,git fetch,2
+Quien es el mejor Profesor de TDA,Edgar,Memo no,Morfin no da progra,Tortolero menos,6
