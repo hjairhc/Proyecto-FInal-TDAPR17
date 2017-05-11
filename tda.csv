@@ -1,0 +1,14 @@
+Cual de estas es una buena practica de programacion,Programacion modular,Programacion en un solo archivo,Programacion completa en el main,Funciones largas,1
+En clase se trabajo con el cifrado,Vigeniere,Cesar,MD5,AES,1
+Extension que permite graficar funciones,Gnuplot,gdb,gitHub,GTK,3
+Comando para graficar los datos de un archivo,plot “nombre.archivo”,plot  nombre.archivo,grafica “nombre.archivo”,grafica nombre.archivo,3
+Comando que te regresa un 0 si el proceso tuvo exito,echo$?,check,validar,process,2
+Extension que sirve para depuracion de errores,gdb,Gnuplot,gitHub,GTK,2
+La linea gcc -g fuente.c -o exe.out se usa para,gdb,Gnuplot,gitHub,GTK,2
+Se puede avanzar paso a paso en gdb con,step,jump,run,line,2
+Permite mantener un control de versiones junto con colaboradores,GitHub,Gnuplot,gdb,GTK,2
+Comando que NO se utiliza para subir un archivo a un repositorio,git status,git add ,Git commit -m “mensaje”,git push,3
+Inicia un nuevo repositorio,git init,git add archivo,git status,git commit -m,2
+Comando que permite crear una nueva rama,git branch nombre_rama,git add archivo,git status,git commit -m,4
+La parte del ___ nos permite tener una guía para generar el codigo,disenio,especificaciones,documentacion,comentarios,3
+Esto nos ayuda a comprender mejor el codigo cuando lo volvemos a leer,comentarios,modularidad,prototipos de funciones,analisis,3
