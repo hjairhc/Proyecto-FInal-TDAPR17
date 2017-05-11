@@ -154,6 +154,7 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 				printf("a) %s\tb) %s\tc) %s\td)%s\n", reac[cont2].opca, reac[cont2].opcb, reac[cont2].opcc, reac[cont2].opcd);
 				printf("\n\nOpcion: ");
 				//Aqui se valida que se metan los caracteres correctos.
+				//Do while es para repetir la instruccion hasta que ingrese un caracter valido
 				do{
 					scanf("%c", &opcion);
 					if(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d')
@@ -162,6 +163,7 @@ void Aplicar(char *Examen, char *Resultados, int alumnos)
 							scanf("%c", &opcion);
 						}
 }while(opcion!='a'&&opcion!='b'&&opcion!='c'&&opcion!='d');
+				//Se convierte puntos a entero
 				puntos=atoi(reac[cont2].valor);
 				if(opcion=='a')
 				{			
